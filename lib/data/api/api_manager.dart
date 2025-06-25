@@ -10,7 +10,7 @@ class ApiManager {
     try {
       var uri = Uri.https(baseUrl, getProducts);
       var response = await http.get(uri);
-print(response.body);
+
       if (response.statusCode == 200) {
         var decode = jsonDecode(response.body) as List;
         return decode.map((item) => ProductsResponse.fromJson(item)).toList();
